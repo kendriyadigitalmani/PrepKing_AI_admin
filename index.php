@@ -276,7 +276,7 @@ $current_datetime = date('Y-m-d H:i:s');
 
   <main>
     <div class="login-box">
-      <h2>Admin Login admin 6</h2>
+      <h2>Admin Login admin 7</h2>
 
       <?php if ($login_error): ?>
         <div class="error"><?= htmlspecialchars($login_error) ?></div>
