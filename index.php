@@ -1,8 +1,9 @@
 <?php
 // ============== CONFIG ==============
 $ADMIN_USER     = 'admin';
-$ADMIN_PASS     = 'test1234';      // ← CHANGE THIS in real projects! (highlighted below)
+$ADMIN_PASS     = 'test1234';      // ← CHANGE THIS in real projects!
 $ADMIN_TITLE    = 'Luna Admin Test';
+$VERSION        = '1.2.0';         // ← You can update this manually when you make changes
 
 // Start session
 session_start();
@@ -40,6 +41,9 @@ $stats = [
     'revenue'   => '$48,920',
     'pending'   => 9
 ];
+
+// Current date & time (updated on every page load)
+$current_datetime = date('Y-m-d H:i:s');
 ?>
 
 <!DOCTYPE html>
@@ -66,6 +70,7 @@ $stats = [
       --success: #00ff9d;
       --gray: #777;
       --info: #4da6ff;
+      --version: #00ff9d;     /* green-ish for version */
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -94,7 +99,6 @@ $stats = [
 
     main { flex: 1; padding: 2rem 5%; max-width: 1400px; margin: 0 auto; width: 100%; }
 
-    /* ─── Notice Banner ─── */
     .notice-banner {
       background: var(--warning-bg);
       border: 2px solid var(--warning-border);
@@ -110,7 +114,6 @@ $stats = [
 
     .notice-banner strong { color: var(--warning); }
 
-    /* ─── Highlight classes ─── */
     .highlight-warning {
       background: var(--warning);
       color: #000;
@@ -200,10 +203,23 @@ $stats = [
 
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 2.2rem 1rem;
       color: var(--gray);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       border-top: 1px solid #111;
+      background: rgba(0,0,0,0.3);
+    }
+
+    .version-info {
+      color: var(--version);
+      font-weight: 500;
+      margin-top: 0.6rem;
+      font-size: 1rem;
+    }
+
+    .version-info span {
+      color: #88ffcc;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -218,7 +234,6 @@ $stats = [
 
   <main>
 
-    <!-- NOTICEABLE EDIT / WARNING BANNER -->
     <div class="notice-banner">
       <strong>TEST / DEVELOPMENT MODE ACTIVE</strong><br>
       Hardcoded credentials • Do <span class="highlight-danger">NOT</span> use in production!
@@ -285,6 +300,10 @@ $stats = [
 
 <footer>
   © <?= date('Y') ?> Luna Test Admin • Single-file demo
+  <div class="version-info">
+    Version <span><?= htmlspecialchars($VERSION) ?></span>  
+    — Last updated / generated: <span><?= htmlspecialchars($current_datetime) ?></span>
+  </div>
 </footer>
 
 </body>
