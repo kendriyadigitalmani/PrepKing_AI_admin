@@ -2,7 +2,7 @@
 // ============== CONFIG ==============
 $ADMIN_USER     = 'admin';
 $ADMIN_PASS     = 'test1234';      // ← CHANGE THIS in real projects!
-$ADMIN_TITLE    = 'Luna Admin Test';
+$ADMIN_TITLE    = 'Luna Admin Test Admin4';
 $VERSION        = '1.3.0';         // ← You can update this manually when you make changes
 
 // Start session
@@ -276,7 +276,7 @@ $current_datetime = date('Y-m-d H:i:s');
 
   <main>
     <div class="login-box">
-      <h2>Admin Login</h2>
+      <h2>Admin Login admin 4</h2>
 
       <?php if ($login_error): ?>
         <div class="error"><?= htmlspecialchars($login_error) ?></div>
